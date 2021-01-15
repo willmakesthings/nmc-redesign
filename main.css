@@ -1,32 +1,141 @@
-. container {
-    display: grid;
-    grid-template-columns: repeat(12, 100px [col-start]);
-    column-gap: 16px; 
-    grid-template-areas: 
-        "header header header header header header header header header header header header"
+@font-face {
+    font-family: 'terminal-grotesque';
+    src: url('../typo/terminal-grotesque-webfont.eot');
+    src: url('../typo/terminal-grotesque-webfont.woff2') format('woff2'),
+         url('../typo/terminal-grotesque-webfont.woff') format('woff'),
+         url('../typo/terminal-grotesque-webfont.ttf') format('truetype'),
+         url('../typo/terminal-grotesque-webfont.svg#terminal_grotesqueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'terminal-grotesque-open';
+    src: url('../typo/terminal-grotesque-open-webfont.eot');
+    src: url('../typo/terminal-grotesque-open-webfont.woff2') format('woff2'),
+         url('../typo/terminal-grotesque-open-webfont.woff') format('woff'),
+         url('../typo/terminal-grotesque-open-webfont.ttf') format('truetype'),
+         url('../typo/terminal-grotesque-open-webfont.svg#terminal_grotesqueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --white: #ffffff;
+    --black: #0a0a0a;
+    --blue: #2727E7;
+    --lightblue: #B2CCFF;
+    --red: #F93528;
+    --pink: #FFC2C2;
+    --orange: #FF7043;
+    --lightyellow: #FFD362;
+    --deepyellow: #FFB615;
+    --green: #00C27B;
+    --teal: #00A4CB;
+  }
+
+body{
+    display:flex;
+    justify-content: center;
+    background-color: var(--black);
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: 400;
+    color: var(--white);
+}
+
+#title {
+    font-size: 6rem;
+    font-family: 'terminal-grotesque', sans-serif;
+    color: var(--white);
+}
+
+.dropcap {
+    font-family: 'terminal-grotesque-open', sans-serif;
+}
+
+p {
+    font-size: 1rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--white);
+}
+
+.nav{
+    position:fixed;
+    width: 100vw;
+    max-width: 1400px;
+    z-index: 999999;
+    /* background-color: gray; */
+    margin: auto;
+    display: inline-grid;
+    grid-template-columns: repeat(12, 1fr [col-start]);
+    grid-template-rows: 50px auto;
+    column-gap: 1vw;
+    align-items: center;
+    grid-template-areas:
+        ". logo . . . . links links links links links ."
+}
+
+.nav__logo{
+    grid-area: logo;
+    font-family: 'terminal-grotesque-open', sans-serif ;
+    font-size: 1.5rem;
+    justify-self: start;
+    color: var(--white);
+}
+
+.nav__linkholder{
+    grid-area: links;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-size: .8rem;
+}
+
+.nav__linkholder__link a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+/*  CSS GRID SETUP */
+/* each zone of the site gets its own class, which is assigned a grid area that is detailed below */
+
+#container {
+    width: 100vw;
+    max-width: 1400px;
+    margin: auto;
+    display: inline-grid;
+    grid-template-columns: repeat(12, 1fr [col-start]);
+    grid-template-rows: 100px auto;
+    column-gap: 1vw; 
+    grid-template-areas:
+        ". . . . . . . . . . . ."
+        ". welcome welcome welcome welcome welcome welcome welcome welcome welcome welcome ."
+        ". header header header header header header header header header header ."
+        ". intro intro intro intro intro intro intro . . . ."
+        ". join join . . . . . . . . ."
     ;
 }
 
-@font-face {
-    font-family: "terminal-grotesque_open";
-    src: url("terminal-grotesque_open.otf") format(".otf");
-    font-weight: normal;
-        font-style: normal;
+#title{
+    grid-area: header;
+    /* background-color: yellow; */
 }
 
-@font-face {
-    font-family: "terminal-grotesque";
-    src: url("terminal-grotesque.ttf") format(".ttf");
-    font-weight: normal;
-        font-style: normal;
+#welcome{
+    grid-area: welcome;
+    /* background-color: blue; */
 }
 
-p { 
-    font-family: 'terminal-grotesque_open';
+#intro{
+    grid-area: intro;
+    /* background-color: indianred; */
 }
 
-.h1 {
-    font-size: 4.5em;
-    font-family: 'terminal-grotesque_open';
+#join{
+    grid-area: join;
+    /* background-color: lightblue; */
 }
-
