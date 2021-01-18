@@ -38,10 +38,18 @@ body{
     display:flex;
     justify-content: center;
     background-color: var(--black);
+    flex-wrap:wrap;
 }
 
 h1 {
     font-size: 2rem;
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: 400;
+    color: var(--white);
+}
+
+h2 {
+    font-size: 1.5rem;
     font-family: 'IBM Plex Mono', sans-serif;
     font-weight: 400;
     color: var(--white);
@@ -53,6 +61,26 @@ h1 {
     color: var(--white);
 }
 
+#bigtext, #bigtext2{
+    font-size: 6rem;
+    font-family: 'terminal-grotesque-open', sans-serif;
+    color: var(--white);
+    grid-column: 2/11;
+    text-align: center;
+}
+#callout1, #callout2{
+    font-size: 1rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--white);
+    grid-column: 2/11;
+    text-align: center;
+}
+
+#callout{
+    grid-column: 2/11;
+    border-right: #ffffff 1px;
+}
+
 .dropcap {
     font-family: 'terminal-grotesque-open', sans-serif;
 }
@@ -61,6 +89,26 @@ p {
     font-size: 1rem;
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--white);
+    line-height: 1.5rem;
+}
+
+button{
+    background-color:var(--black); /* Green */
+    border-style: solid;
+    border-color: var(--white);
+    color: var(--white);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    font-family: 'IBM Plex Mono', sans-serif;
+}
+
+button:hover{
+    background-color: var(--white);
+    color: black;
+    transition: all 0.2s ease-in-out;
 }
 
 .nav{
@@ -68,7 +116,7 @@ p {
     width: 100vw;
     max-width: 1400px;
     z-index: 999999;
-    /* background-color: gray; */
+    /* background-color: var(--black); */
     margin: auto;
     display: inline-grid;
     grid-template-columns: repeat(12, 1fr [col-start]);
@@ -103,14 +151,19 @@ p {
 /*  CSS GRID SETUP */
 /* each zone of the site gets its own class, which is assigned a grid area that is detailed below */
 
-#container {
+.container{
     width: 100vw;
     max-width: 1400px;
     margin: auto;
+    margin-top: 100px;
     display: inline-grid;
     grid-template-columns: repeat(12, 1fr [col-start]);
-    grid-template-rows: 100px auto;
-    column-gap: 1vw; 
+    grid-template-rows: auto;
+    column-gap: 1vw;
+}
+
+
+/* .container--welcome{
     grid-template-areas:
         ". . . . . . . . . . . ."
         ". welcome welcome welcome welcome welcome welcome welcome welcome welcome welcome ."
@@ -120,22 +173,174 @@ p {
     ;
 }
 
+.container--who{
+    grid-template-areas:
+        ". who who who who who who who who who who who"
+        ". bio bio bio bio bio bio bio . . . ."
+        ". link link link link link . . . . . ."
+        "img img img img img img img img img img img img"
+        ". . . . . . . . . . . ."
+    ;
+} */
+
+
 #title{
-    grid-area: header;
+    /* grid-area: header; */
+    grid-column: 2 / 11;
+    grid-row: 3;
     /* background-color: yellow; */
 }
 
 #welcome{
-    grid-area: welcome;
+    /* grid-area: welcome; */
+    grid-column: 2 / 11;
+    grid-row: 2;
+    height: 100%;
     /* background-color: blue; */
 }
 
 #intro{
-    grid-area: intro;
+    /* grid-area: intro; */
+    grid-column: 2 / 8;
+    grid-row: 4;
     /* background-color: indianred; */
 }
 
 #join{
-    grid-area: join;
+    /* grid-area: join; */
+    grid-column: 2 / 4;
+    grid-row: 5;
     /* background-color: lightblue; */
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-size: 0.85rem;
+    margin-top: 2rem;
+    line-height: 1.25rem;
+    font-weight: bold;
+}
+
+#event-wrapper{
+    grid-column: 7 / 11;
+    grid-row: 6;
+    margin-top: 10vw;
+}
+
+#mascot{
+    grid-column: 3 / 5;
+    grid-row: 6;
+    height: 15vw;
+    margin-top: 15vw;
+}
+
+#event-time{
+    /* grid-column: 6 / 11;
+    grid-row: 6; */
+
+}
+
+#event-date{
+    /* grid-column: 6 / 11;
+    grid-row: 6; */
+    margin-top: 8px;
+}
+
+#event-title{
+    grid-column: 6 / 11;
+    grid-row: 6;
+    margin-top: 36px;
+}
+
+#event-bio{
+    /* grid-column: 6 / 11;
+    grid-row: 6; */
+    margin-top:12px;
+
+}
+
+#event-button{
+    /* grid-column: 6 / 11;
+    grid-row: 6; */
+    margin-top: 16px;
+    
+}
+
+#image-carousel{
+    /* grid-area: img; */
+    grid-column: 1 / 12;
+    grid-row: 3;
+    height: 40vw;
+    /* overflow: hidden;
+    white-space: nowrap; */
+    /* animation: bannermove 20s linear infinite; */
+}
+
+@keyframes bannermove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0)
+    }
+}
+
+#svgContainer{
+    z-index: -10;
+    position: absolute;
+    overflow: visible;
+}
+
+#svg1{
+    overflow: visible;
+    z-index: 99;
+    /* stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 5s linear infinite; */
+}
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+#img1{
+    transform: rotate(-20deg); 
+    object-fit: contain;
+    max-width: 75%;
+    max-height: 75%;
+}
+
+#img2{
+    transform: rotate(5deg); 
+    object-fit: contain;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#who{
+    /* grid-area: who; */
+    grid-column: 2 / 12;
+}
+
+#matterCanvas{
+    position:fixed;
+    top:0;
+    z-index: 999;
+    pointer-events: none;
+    width:100vw;
+    height: 100vh;
+}
+
+#who-bio{
+    /* grid-area: bio7 */
+    grid-column: 2 / 6;   
+}
+
+#mentor{
+    grid-column: 2/11;
+}
+#mentor-desc{
+    grid-column: 2/6;
+}
+#mentor-desc2{
+    grid-column: 7/11;
 }

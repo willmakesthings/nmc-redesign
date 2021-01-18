@@ -8,11 +8,20 @@
     <link rel = "stylesheet" type = "text/css" href = "main.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital@0;1&display=swap" rel="stylesheet">
+  
+    <script src="./matter/matter-js-0.14.2/build/matter.js" type="text/javascript"></script>
+    <script src="/p5.js" type="text/javascript"></script>
+
+    <script src="/box.js" type="text/javascript"></script>
+    <script src="/confetti.js" type="text/javascript"></script>
+    
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+
+    <div id="matterCanvas"></div>
 
     <div class="nav">
       <div class="nav__logo">NMC</div>
@@ -26,14 +35,73 @@
       </ul>
     </div>
 
-    <div id="container">
+    <section class="container">
       
       <h1 id="welcome">Welcome to</h1>
       <div id="title"><span style="font-family: terminal-grotesque-open, sans-serif">N</span>ew <span style="font-family: terminal-grotesque-open">M</span>edia <span style="font-family: terminal-grotesque-open">C</span>lub</div>
       <p id="intro">What up? We're three cool guys who are looking for other cool guys who want to hang out in our party mansion. Nothing sexual.</p>
-      <p id="join">JOIN US For our next meeting</p>
+      <p id="join">JOIN US <br> For our next meeting</p>
+      <div id="svgContainer" style="margin: 50px 50px;">
+      <svg id="svg1" width="0" height="0" >
+        <defs>
+            <!-- arrowhead marker definition -->
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
+                markerWidth="6" markerHeight="6"
+                orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" style="stroke: none; fill: #fff;"/>
+            </marker>
+          </defs>  
+        <path
+             id="path1"
+             d="M0 0"             
+             stroke-width="3px"
+             marker-end="url(#arrow)"
+             style="stroke: #fff; fill:none; "/>
+        <circle cx="" cy="" r="5" fill="#fff">
+        <animateMotion dur="5s" repeatCount="indefinite">
+        <mpath xlink:href="#path1"></mpath>
+        </animateMotion>   
+        </svg>
+    </div>
+      <img id="mascot" src="media/wilson.svg">
+      <div id="event-wrapper">
+      <p id="event-time">8:30PM EST</p>
+      <p id="event-date">Wednesday, Sept 6th 2021</p>
+      <h2 id="event-title">Summer Recap Night</h2>
+      <p id="event-bio">Summer recap night is to recap summer. Be there. Pizza will be provided. Club Members only please. Filler text here more text maximum text.</p>
+      <button id="event-button">More Events →</button>
+      </div>
+    </section>
 
+
+  <section class="container">
+    <h1 id="who">Who we are</h1>
+    <p id="who-bio">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
+    <div id="image-carousel">
+        <img id="img1" src="media/hasque.jpg">
+        <img id="img2" src="media/ben.jpg">
+    </div>
+  </section>
   
-  </div>
+
+  <section class="container">
+    <div id="callout">
+      <h2 id="callout1">we focus on</h2> 
+      <div id="bigtext">building community</div>
+      <h2 id="callout2">centered around the future of</h2> 
+      <div id="bigtext2">interaction design</div>
+    </div>
+  </section>
+
+
+  <section class="container">
+    <h1 id="mentor">mentorship</h1>
+    <p id="mentor-desc">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
+    <p id="mentor-desc2">We love snacks, pizza, and gamers. Catch our among us streams weekly on saturdays, 9 PM EST.</p>
+
+  </section>
+
+
+  <script src="svgDraw.js"></script>
 </body>
 </html>
