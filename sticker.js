@@ -3,7 +3,11 @@ var colors = ['#FFB615', '#2727E7', '#00C27B', '#F93528', '#FF7043', '#FFC2C2']
 var sizes = [30, 60, 90, 120];
 var stickerArray = [];
 
-function setup() {
+let stickersketch = function(stickerp){
+  let x = 0;
+  let y = 0;
+
+  stickerp.setup = function() {
     var element = document.getElementById('stickerCanvas');
     var positionInfo = element.getBoundingClientRect();
     var height = positionInfo.height;
@@ -13,25 +17,26 @@ function setup() {
   canvas.parent('stickerCanvas');
 }
 
-function draw() {
+stickerp.draw = function() {
     noStroke();
 //   angleMode(DEGREES);
     rectMode(CENTER);
-    background(0);
+    // background(0);
+    clear();
     for(let i = 0; i<stickerArray.length; i++){
         stickerArray[i].update();
         stickerArray[i].display();
     }
 }
 
-function mouseClicked() {
+stickerp.mouseclicked = function() {
     var sticker = new Sticker(random(colors), int(random(4)), mouseX, mouseY);
     sticker.display();
     stickerArray.push(sticker);
     console.log(stickerArray);
   }
 
-function polygon(x, y, radius, npoints) {
+stickerp.polygon = function polygon(x, y, radius, npoints) {
     let angle = TWO_PI / npoints;
     beginShape();
     for (let a = 0; a < TWO_PI; a += angle) {
@@ -48,6 +53,7 @@ function polygon(x, y, radius, npoints) {
           this.shapecolor = shapecolor;
           this.shape = shape;
           this.size = random(sizes);
+          this.rotate = random(PI);
           this.x = x;
           this.y = y;
       }
@@ -56,8 +62,7 @@ function polygon(x, y, radius, npoints) {
         var c = color(this.shapecolor);
         c.setAlpha(this.lifespan);
         fill(c);
-        // translate(this.x, this.y);
-        // rotate(random(PI))
+        // rotate(this.rotate);
         if (this.shape == 0){
             ellipse(this.x, this.y, this.size);
             } else if (this.shape == 1){
@@ -68,10 +73,15 @@ function polygon(x, y, radius, npoints) {
             } else if(this.shape == 3) {
                 polygon(this.x, this.y, this.size, 6);  
             }
+        
       }
 
       update(){
         this.lifespan--;
-        console.log(this.lifespan);
+        // console.log(this.lifespan);
     }
   }
+
+}
+
+  let stickerp5 = new p5(stickersketch, "sticker");

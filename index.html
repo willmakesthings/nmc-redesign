@@ -9,21 +9,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital@0;1&display=swap" rel="stylesheet">
   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
     <script src="./matter/matter-js-0.14.2/build/matter.js" type="text/javascript"></script>
-    <script src="/p5.js" type="text/javascript"></script>
 
     <script src="/box.js" type="text/javascript"></script>
-    <script src="/confetti.js" type="text/javascript"></script>
+    <script src="/clickdrag.js" type="text/javascript"></script>
 
     <script src="/sticker.js" type="text/javascript"></script>
     
+    
+
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
 
-    <div id="matterCanvas"></div>
 
     <div class="nav">
       <div class="nav__logo">NMC</div>
@@ -37,7 +38,10 @@
       </ul>
     </div>
 
+
+    
     <section class="container" id="landing-page">
+      <div id="matterCanvas"></div>
       <h1 id="welcome">Welcome to</h1>
       <div id="title"><span style="font-family: terminal-grotesque-open, sans-serif">N</span>ew <span style="font-family: terminal-grotesque-open">M</span>edia <span style="font-family: terminal-grotesque-open">C</span>lub</div>
       <p id="intro">What up? We're three cool guys who are looking for other cool guys who want to hang out in our party mansion. Nothing sexual.</p>
@@ -88,7 +92,7 @@
   </div>
 
   
-  <section class="container" id="callout">
+  <section class="container mbl" id="callout">
     <div id="stickerCanvas"></div>
 
     <h2 id="callout1">we focus on</h2>
@@ -134,17 +138,24 @@
   
 
   <section class="container" id="mentorship">
+    <img id="mentor-img" src="media/mentorship.png">
     <h1 id="mentor" class="mbs">Mentorship</h1>
     <p id="mentor-desc">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
-    <p id="mentor-desc2">We love snacks, pizza, and gamers. Catch our among us streams weekly on saturdays, 9 PM EST.</p>
+    <p id="mentor-desc2">We love snacks, pizza, and gamers. Catch our among us streams weekly on saturdays, 9 PM EST.<br> <a id="mentor-link" href="/mentorship.html">Read More →</a></p>
+    
   </section>
 
 
 <section class="container" id="community-highlight">
-  <h1 id="community">Community Highlight</h1>
-  <h4>UI/UX</h3>
-  <h3>Creating a fully accessible community</h3>
-  <p>ppoooadksscdn f ecjldfiljdj </p>
+  <h1 id="community" class="mbs">Community Highlight</h1>
+  <img src="media/new-medium.png" id="community-image">
+  <div id="community-desc">
+    <span>
+    <h4 id="community-section" class="mbs">UI/UX</h3>
+    <h1 id="community-title" class="mbs">Creating a fully accessible community</h3>
+    <p>How does a product get better with greater consideration for accessibility?</p>
+  </span>
+</div>
 </section>
 
 
@@ -157,8 +168,8 @@
 <section class="container" id="footer">
   <div class="footer-logo">NMC</div>
   <div class="logo-label">New Media Club at RIT</div>
-  <div>Sign up for our biweekly newsletter.</div>
-  <div>Receive updates on meeting dates, new $wag, events and other fun design related news.</div>
+  <div class="sign-up">Sign up for our biweekly newsletter.</div>
+  <div class="deets">Receive updates on meeting dates, new $wag, events and other fun design related news.</div>
 
 
   <div class="list-title" id="involved-title">Get Involved</div>
@@ -173,6 +184,13 @@
     <li class="footer-linkholder"><a href="">Mentors</a></li>
     <li class="footer-linkholder"><a href="">Connect</a></li>
   </ul>
+  <div class="formfield">  
+  <form id="contact" action="" method="post">
+    <fieldset>
+      <input placeholder="your-email@gmail.com_" type="text" tabindex="1" required autofocus>
+      </fieldse>
+  </form>
+</div>
 
 
 </section>

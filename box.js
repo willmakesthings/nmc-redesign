@@ -1,7 +1,7 @@
 function Box(x, y, w, h, confettiColor){
     var options = {
         friction: 0.5,
-        frictionAir: 0,
+        frictionAir: 0.05,
         restitution: .5,
         density: 0.001
     }
@@ -10,13 +10,11 @@ function Box(x, y, w, h, confettiColor){
     this.h = h;
 
     //explosion force vector based on https://observablehq.com/@timhau/playing-with-matter-js
-    const forceMagnitude = random(0.03,0.035) * this.body.mass;
-    Matter.Body.applyForce(this.body, this.body.position, {
-        x:
-          (forceMagnitude + Matter.Common.random() * forceMagnitude) *
-          Matter.Common.choose([0.5, 0, -0.5]),
-        y: -forceMagnitude + Matter.Common.random() * -forceMagnitude
-      });
+    // const forceMagnitude = random(0.01,0.01) * this.body.mass;
+    // Matter.Body.applyForce(this.body, this.body.position, {
+    //     x: (forceMagnitude + random(0.01,0.01) * random(0.01,0.01) * forceMagnitude),
+    //     y: (-forceMagnitude + random(0.01,0.01) * random(0.01,0.01) * -forceMagnitude)
+    //   });
 
     World.add(world, this.body);
 
