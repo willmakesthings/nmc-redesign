@@ -1,4 +1,4 @@
-function Box(x, y, w, h, confettiColor){
+function Box(x, y, w, h, confettiColor, p){
     var options = {
         friction: 0.5,
         frictionAir: 0.05,
@@ -21,7 +21,7 @@ function Box(x, y, w, h, confettiColor){
 
     this.isOffScreen = function(){
         var pos = this.body.position;
-        return (pos.y > height + 100);
+        return (pos.y > p.height + 100);
     }
 
     this.removeFromWorld = function() {
@@ -32,16 +32,16 @@ function Box(x, y, w, h, confettiColor){
         var pos = this.body.position;
         var angle = this.body.angle;
 
-        push();
-        translate(pos.x, pos.y);
-        rotate(angle);
-        rectMode(CENTER);
-        colorMode(HSB);
-        fill(confettiColor, 70, 100);
-        strokeWeight(0);
-        rect(0, 0, this.w, this.h);
+        p.push();
+        p.translate(pos.x, pos.y);
+        p.rotate(angle);
+        p.rectMode(p.CENTER);
+        p.colorMode(p.HSB);
+        p.fill(confettiColor, 70, 100);
+        p.strokeWeight(0);
+        p.rect(0, 0, this.w, this.h);
         // box(this.w, this.h, 1, 1);
         // rotateY(millis() / 1000);
-        pop();
+        p.pop();
     }
 }
