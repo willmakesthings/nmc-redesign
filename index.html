@@ -9,22 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital@0;1&display=swap" rel="stylesheet">
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
-    <script src="./matter/matter-js-0.14.2/build/matter.js" type="text/javascript"></script>
-
-    <script src="/box.js" type="text/javascript"></script>
-    <script src="/clickdrag.js" type="text/javascript"></script>
-
-    <script src="/sticker.js" type="text/javascript"></script>
+    
+    
     
     
 
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
-
+    
 
     <div class="nav">
       <div class="nav__logo">NMC</div>
@@ -41,7 +34,6 @@
 
     
     <section class="container" id="landing-page">
-      <div id="matterCanvas"></div>
       <h1 id="welcome">Welcome to</h1>
       <div id="title"><span style="font-family: terminal-grotesque-open, sans-serif">N</span>ew <span style="font-family: terminal-grotesque-open">M</span>edia <span style="font-family: terminal-grotesque-open">C</span>lub</div>
       <p id="intro">What up? We're three cool guys who are looking for other cool guys who want to hang out in our party mansion. Nothing sexual.</p>
@@ -91,9 +83,21 @@
     <img id="banner" src="media/banner.png">
   </div>
 
+  <div class="sticker-hero">
+    <h1>
+      <span>Fraunces</span>
+      Roman & Italic
+    </h1>
+    <h2>
+      An “Old Style”<br />
+      Typeface Family by<br />
+      <em>Undercase Type</em>
+    </h2>
+  </div>
   
   <section class="container mbl" id="callout">
-    <div id="stickerCanvas"></div>
+    <!-- <div id="stickerCanvas"></div> -->
+    
 
     <h2 id="callout1">we focus on</h2>
     <div id="bigtext">building community</div>
@@ -135,9 +139,8 @@
 
   </section>
 
-  
-
   <section class="container" id="mentorship">
+    <div id="matterCanvas"></div>
     <img id="mentor-img" src="media/mentorship.png">
     <h1 id="mentor" class="mbs">Mentorship</h1>
     <p id="mentor-desc">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
@@ -154,15 +157,18 @@
     <h4 id="community-section" class="mbs">UI/UX</h3>
     <h1 id="community-title" class="mbs">Creating a fully accessible community</h3>
     <p>How does a product get better with greater consideration for accessibility?</p>
+    <button id="read-more-button">Read More Articles →</button>
   </span>
 </div>
 </section>
 
 
 <section class="container" id="merch">
+  <div id="merch-wrapper">
   <h1 id="merch-label">Merch</h1>
-  <p>Support our club through our web store. We offer stickers, t-shirts and other NMC swag for you to rep in the streets. Thank you!</p>
+  <p id="merch-desc">Support our club through our web store. We offer stickers, t-shirts and other NMC swag for you to rep in the streets. Thank you!</p>
   <button id="merch-button">Let's Shop →</button>
+</div>
 </section>
 
 <section class="container" id="footer">
@@ -195,7 +201,23 @@
 
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
+<!-- <script src="./matter/matter-js-0.14.2/build/matter.js" type="text/javascript"></script> -->
+<script src="/decomp.js" type="text/javascript"></script>
+<script src="/decomp.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.js" type="text/javascript"></script>
 
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/main.js" type="text/javascript"></script>
+
+    <script src="/box.js" type="text/javascript"></script>
+    <!-- <script src="/star.js" type="text/javascript"></script> -->
+    <script src="/clickdrag.js" type="text/javascript"></script>
+    <!-- <script src="/sticker.js" type="text/javascript"></script> -->
   <script src="svgDraw.js"></script>
 </body>
 </html>

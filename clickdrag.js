@@ -15,6 +15,7 @@ var engine;
 var world;
 // var boxA;
 var boxes = [];
+var stars = [];
 
 var ground;
 // var mConstraint;
@@ -113,8 +114,16 @@ let clickdragp5 = new p5((p) => {
 
 
 p.setup = function(){
+    var element = document.getElementById('matterCanvas');
+    var positionInfo = element.getBoundingClientRect();
+    var height = positionInfo.height;
+    var width = positionInfo.width;
+
     var canvas = p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
-    canvas.parent("matterCanvas");
+    canvas.parent('matterCanvas');
+
+    // var canvas = p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
+    // canvas.parent("matterCanvas");
     // background(0,0,0);
     engine = Engine.create();
     world = engine.world;
@@ -124,10 +133,10 @@ p.setup = function(){
         isStatic: true
     }
 
-    ground = Bodies.rectangle(0, p.height / 2, p.width, 1, boundaryoptions);
-    ceiling = Bodies.rectangle(0, -p.height / 2, p.width, 1, boundaryoptions);
-    left = Bodies.rectangle(-p.width / 2, 0, 1, p.height, boundaryoptions);
-    right = Bodies.rectangle(p.width / 2, 0, 1, p.height, boundaryoptions);
+    ground = Bodies.rectangle(0, p.height / 2, p.width, 100, boundaryoptions);
+    ceiling = Bodies.rectangle(0, -p.height / 2, p.width, 100, boundaryoptions);
+    left = Bodies.rectangle(-p.width / 2, 0, 100, p.height, boundaryoptions);
+    right = Bodies.rectangle(p.width / 2, 0, 100, p.height, boundaryoptions);
     // console.log(boxA);
     // console.log(World)
     World.add(world, ground);
@@ -136,9 +145,11 @@ p.setup = function(){
     World.add(world, right);
     
     boxes.push(new Box(0, 0, 50, 50, 255, p));
-    console.log("clickdragbox 1 created");
+    stars.push(new Star(0,0));
+    // Matter.Bodies.fromVertices(x, y, [[vector]], [options], [flagInternal=false], [removeCollinear=0.01], [minimumArea=10], [removeDuplicatePoints=0.01])
+    // console.log("clickdragbox 1 created");
     boxes.push(new Box(0, 0, 100, 100, 255, p));
-    console.log("clickdragbox 2 created");
+    // console.log("clickdragbox 2 created");
 
     p.noStroke();
     p.rectMode(p.CENTER);
@@ -154,10 +165,12 @@ p.setup = function(){
       stiffness: 0.1,
     }
   }
+  
   mouseConstraint = MouseConstraint.create(engine, mouseParams);
+  mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.mouse.mousewheel);
+  mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
   mouseConstraint.mouse.pixelRatio = p.pixelDensity();
   World.add(world, mouseConstraint);
-
 }
 
 p.draw = function draw(){
