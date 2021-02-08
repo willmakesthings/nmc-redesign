@@ -1,9 +1,9 @@
 function Box(x, y, w, h, confettiColor, p){
     var options = {
         friction: 0.5,
-        frictionAir: 0.05,
+        frictionAir: 0.08,
         restitution: .5,
-        density: 0.001
+        density: 0.01
     }
     this.body = Bodies.rectangle(x, y, w, h, options);
     this.w = w;
@@ -37,7 +37,7 @@ function Box(x, y, w, h, confettiColor, p){
         p.rotate(angle);
         p.rectMode(p.CENTER);
         p.colorMode(p.HSB);
-        p.fill(confettiColor, 70, 100);
+        p.fill(confettiColor);
         p.strokeWeight(0);
         p.rect(0, 0, this.w, this.h);
         // box(this.w, this.h, 1, 1);

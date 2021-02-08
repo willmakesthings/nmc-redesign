@@ -8,16 +8,20 @@
     <link rel = "stylesheet" type = "text/css" href = "main.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital@0;1&display=swap" rel="stylesheet">
-  
-    
-    
-    
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    
   </head>
+  <!-- <style>
+    body {cursor: url('https://raw.githubusercontent.com/coob113/fancy-cursors/master/pixelated1.png'), auto !important;}
+    a, button, #mascot {cursor: url('https://raw.githubusercontent.com/coob113/fancy-cursors/master/pixelated2.png') 23 0, auto !important;}
+    </style> -->
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
-    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
     <div class="nav">
       <div class="nav__logo">NMC</div>
@@ -30,15 +34,15 @@
         <li class="nav__linkholder__link"><a href="">Contact</a></li>
       </ul>
     </div>
-
-
     
     <section class="container" id="landing-page">
-      <h1 id="welcome">Welcome to</h1>
-      <div id="title"><span style="font-family: terminal-grotesque-open, sans-serif">N</span>ew <span style="font-family: terminal-grotesque-open">M</span>edia <span style="font-family: terminal-grotesque-open">C</span>lub</div>
+      <div id="drawing-canvas"></div>
+      <h1 id="welcome" data-aos="fade-up">Welcome to</h1>
+      <div id="title" data-aos="fade-up" data-aos-delay="100"><span style="font-family: terminal-grotesque-open, sans-serif">N</span>ew <span style="font-family: terminal-grotesque-open">M</span>edia <span style="font-family: terminal-grotesque-open">C</span>lub</div>
       <p id="intro">What up? We're three cool guys who are looking for other cool guys who want to hang out in our party mansion. Nothing sexual.</p>
       <p id="join">JOIN US <br> For our next meeting</p>
-      <div id="svgContainer" style="margin: 50px 50px;">
+      <!-- <div id="svgContainer" style="margin: 50px 50px;"> -->
+        <div id="svgContainer">
         <svg id="svg1" width="0" height="0" >
           <defs>
               <!-- arrowhead marker definition -->
@@ -61,7 +65,11 @@
             </animateMotion>   
           </svg>
     </div>
-      <img id="mascot" src="media/wilson.svg">
+      <div class="wilson">
+        <div id="mascot-face">:)</div>
+      </div>
+      <img id="mascot" class="rotate" src="media/wilson.svg">
+      <img id="mascot-bg" src="media/wilson-bg.svg"></div>
       <div id="event-wrapper">
         <p id="event-time">8:30PM EST</p>
         <p id="event-date">Wednesday, Sept 6th 2021</p>
@@ -73,36 +81,30 @@
 
 
   <section class="container" id="who-are-we">
-    <h1 id="who" class="mbs">Who we are</h1>
-    <p id="who-bio">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
+    <h1 id="who" class="mbs" data-aos="fade-up">Who we are</h1>
+    <p id="who-bio" data-aos="fade-up" data-aos-delay="100">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
   </section>
 
-  <div id="image-carousel" class="mbl">
+  <div id="image-carousel" data-aos="fade-up" data-aos-delay="200">
     <!-- <img id="img1" src="media/hasque.jpg">
     <img id="img2" src="media/ben.jpg"> -->
     <img id="banner" src="media/banner.png">
   </div>
 
-  <div class="sticker-hero">
-    <h1>
-      <span>Fraunces</span>
-      Roman & Italic
-    </h1>
-    <h2>
-      An “Old Style”<br />
-      Typeface Family by<br />
-      <em>Undercase Type</em>
-    </h2>
-  </div>
   
-  <section class="container mbl" id="callout">
+ 
+  
+  <section class="container" id="callout">
     <!-- <div id="stickerCanvas"></div> -->
-    
-
-    <h2 id="callout1">we focus on</h2>
-    <div id="bigtext">building community</div>
-    <h2 id="callout2">centered around the future of</h2> 
-    <div id="bigtext2">design &#38; interaction</div>
+    <!-- <div id="matterCanvas"></div> -->
+    <!-- <div id="matterContainer">
+      
+    </div> -->
+     <div id="sticker-hero"></div>
+    <h2 id="callout1" data-aos="fade-up">we focus on</h2>
+    <div id="bigtext" data-aos="fade-up" data-aos-delay="100">building community</div>
+    <h2 id="callout2" data-aos="fade-up" data-aos-delay="200">centered around the future of</h2> 
+    <div id="bigtext2" data-aos="fade-up" data-aos-delay="300">design &#38; interaction</div>
     
 
     <div id="grid-col">
@@ -137,14 +139,25 @@
       <div class="row-segment" id="row14"></div>
     </div>
 
+
+    
   </section>
 
+  
   <section class="container" id="mentorship">
-    <div id="matterCanvas"></div>
-    <img id="mentor-img" src="media/mentorship.png">
-    <h1 id="mentor" class="mbs">Mentorship</h1>
-    <p id="mentor-desc">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
-    <p id="mentor-desc2">We love snacks, pizza, and gamers. Catch our among us streams weekly on saturdays, 9 PM EST.<br> <a id="mentor-link" href="/mentorship.html">Read More →</a></p>
+    
+    <!-- <img id="mentor-img" src="media/mentorship.png"> -->
+    
+      <img src="media/mentor-shape.png" class="mentor-rotate" id="mentor-shape">
+      <img src="media/mentor-arrow.png" id="mentor-arrow">
+      <img src="media/mentee-shape.png" class="mentee-rotate" id="mentee-shape">
+      <img src="media/mentee-arrow.png" id="mentee-arrow">
+      <div id="mentor-bg-scene">
+        <img src="media/mentorship-bg.png" data-depth="0.2" id="mentor-bg">
+    </div>
+    <h1 id="mentor" class="mbs" data-aos="fade-up">Mentorship</h1>
+    <p id="mentor-desc" data-aos="fade-up">New Media Club is a student organization at Rochester Institute of Technology. We rely on our 3 pillars of beliefs all starting with the letter cramps, capitalism, christianity, and crumbs.</p>
+    <p id="mentor-desc2" data-aos="fade-up">We love snacks, pizza, and gamers. Catch our among us streams weekly on saturdays, 9 PM EST.<br> <a id="mentor-link" href="/mentorship.html">Read More →</a></p>
     
   </section>
 
@@ -203,21 +216,20 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js" type="text/javascript"></script>
 <!-- <script src="./matter/matter-js-0.14.2/build/matter.js" type="text/javascript"></script> -->
-<script src="/decomp.js" type="text/javascript"></script>
-<script src="/decomp.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.js" type="text/javascript"></script>
-
-
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="/src/decomp.js" type="text/javascript"></script>
+    <script src="/src/decomp.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.15.0/matter.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="/main.js" type="text/javascript"></script>
-
-    <script src="/box.js" type="text/javascript"></script>
-    <!-- <script src="/star.js" type="text/javascript"></script> -->
-    <script src="/clickdrag.js" type="text/javascript"></script>
-    <!-- <script src="/sticker.js" type="text/javascript"></script> -->
-  <script src="svgDraw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="/src/main.js" type="text/javascript"></script>
+    <script src="/src/box.js" type="text/javascript"></script>
+    <script src="/src/star.js" type="text/javascript"></script>
+    <!-- <script src="/src/clickdrag.js" type="text/javascript"></script> -->
+    <script src="/src/sticker.js" defer type="text/javascript"></script>
+    <script src="/src/Line.js" defer type="text/javascript"></script>
+    <script src="/src/drawing.js" defer type="text/javascript"></script>
+    <script src="/src/svgDraw.js" type="text/javascript"></script>
 </body>
 </html>

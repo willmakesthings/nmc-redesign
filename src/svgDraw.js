@@ -76,7 +76,8 @@ function connectElements(svg, path, startElem, endElem) {
 
         // calculate path's end (x,y) coords
     var endX = endCoord.left - svgLeft;
-    var endY = endCoord.top - svgTop;
+    // var endY = endCoord.top - svgTop;
+    var endY = endCoord.top - svgTop - 10;
 
     // call function for drawing the path
     drawPath(svg, path, startX, startY, endX, endY);

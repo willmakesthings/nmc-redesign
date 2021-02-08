@@ -1,13 +1,4 @@
-$(document).ready(function(){
-    $('html, body').scrollTop(0);
 
-    $(window).on('load', function() {
-    setTimeout(function(){
-        $('html, body').scrollTop(0);
-    }, 0);
-
- });
-});
 
 const numberOfStickers = 7; // How many hero-stickers-0x.svg do we have?
 let scrollPos = 0;
@@ -55,8 +46,8 @@ const mouse = {
 };
 window.addEventListener("mousemove", e => {
 	mouse.x = e.clientX;
-	mouse.y = e.clientY;
-	mouse.executeCallback(e);
+  mouse.y = e.clientY;
+  mouse.executeCallback(e);
 });
 window.addEventListener("touchstart", e => {
 	mouse.x = e.changedTouches[0].clientX;
@@ -67,11 +58,13 @@ window.addEventListener("mouseup", () => {
 	mouse.endCallback && mouse.endCallback();
 	mouse.dragCallback = mouse.endCallback = false;
 });
+// window.addEventListener("scroll", e => {
+//   console.log(window.scrollY);
+// });
+
 
 // Sticker stuff
-const stickable = document.querySelector(".sticker-hero");
-console.log(stickable);
-// const headerEl = document.querySelector("header");
+const stickable = document.querySelector('#sticker-hero');
 const sticker = {
 	x: 0,
 	y: 0,
@@ -84,14 +77,16 @@ const sticker = {
 		return (x / stickable.clientWidth) * 100;
 	},
 	calculateVhPos: function(y) {
-		const elementOffset = window.innerHeight - stickable.clientHeight;
-		return (y / (stickable.clientHeight + elementOffset)) * 100;
+    const elementOffset = window.innerHeight - stickable.clientHeight;
+    // console.log(stickable);
+		return (y / (stickable.clientHeight + elementOffset)) * 100 - 150;
 	},
 	updateSticker: function() {
-		this.x = this.calculateVwPos(mouse.x - sticker.offsetX);
+    this.x = this.calculateVwPos(mouse.x - sticker.offsetX);
 		this.y = this.calculateVhPos(
 			mouse.y + document.documentElement.scrollTop - sticker.offsetY
-		);
+    );
+    // this.y = mouse.y + document.documentElement.scrollTop;
 		this.current && this.moveSticker();
 	},
 	moveSticker: function() {
@@ -99,7 +94,7 @@ const sticker = {
 		this.current.style.setProperty("--y", `${this.y}vh`);
 	},
 	generateSticker: function(x, y) {
-		if (this.current) {
+    if (this.current) {
 			this.current.classList.remove("dragging");
 		}
 		const tilt = Math.floor(Math.random() * 40 + 1) - 20;
@@ -163,6 +158,7 @@ stickable.addEventListener("touchend", e => {
 });
 
 stickable.addEventListener("mousemove", () => {
+  // console.log("mouseX: " + mouse.x + ", mouseY: " + mouse.y);
 	if (!sticker.current && mouse.x && mouse.y) {
 		sticker.generateSticker();
 	}
@@ -171,8 +167,9 @@ stickable.addEventListener("mousemove", () => {
 
 // Place sticker and create new one
 stickable.addEventListener("mousedown", e => {
+  // console.log("mouse clicked")
 	if (e.which !== 1) return; // Only work on left mouse button
-    console.log("mouse clicked")
+    // console.log("mouse clicked")
 	sticker.generateSticker();
 	sticker.updateSticker();
 });
