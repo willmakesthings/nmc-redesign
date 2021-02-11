@@ -1,0 +1,73 @@
+/*  NAV STYLING */
+.nav {
+    position: fixed;
+    width: 100vw;
+    max-width: 1400px;
+    z-index: 999999;
+    background-color: var(--black);
+    margin: auto;
+    display: inline-grid;
+    grid-template-columns: repeat(12, 1fr [col-start]);
+    grid-template-rows: 50px auto;
+    column-gap: 1vw;
+    align-items: center;
+    grid-template-areas:
+        ". logo . . . . links links links links links ."
+}
+
+.nav__logo {
+    grid-area: logo;
+    font-family: 'terminal-grotesque-open', sans-serif;
+    font-size: 1.5rem;
+    justify-self: start;
+    color: var(--white);
+    text-decoration:none;
+}
+
+.nav__logo:hover{
+    transition: all 0.15s cubic-bezier(0,.86,.57,1.31);
+    color: var(--gray02);
+}
+
+.nav__linkholder {
+    grid-area: links;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-size: .7rem;
+}
+
+.nav__linkholder__link a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav__link{
+    position:relative;
+}
+
+.nav__link:before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--gray02);
+    visibility: hidden;
+    transition: all 0.15s cubic-bezier(0,.86,.57,1.31);
+}
+
+
+.nav__link:hover:before{
+    visibility: visible;
+     width: 100%;
+}
+
+.nav__link:hover{
+    color: var(--gray02);
+}
+
+.activeNav{
+    color:(--)
+}

@@ -4,6 +4,7 @@ let drawings = [];
 let colors = ["240,83,90","220,30,100","4,84,98","0,24,100","14,73,100","43,61,100","158,100,76"];
 let color;
 let colornum;
+let introdraw = false;
 
 function setup(){
     var element = document.getElementById('drawing-canvas');
@@ -29,8 +30,11 @@ function draw() {
     background("#0a0a0a")
     strokeWeight(penSize);
     colorMode(HSB);
+    if (introdraw == true) {
+        introDraw();
+    }
+
     for(let i=0; i<drawings.length; i++){
-        // console.log(drawings[i]);
             drawings[i].display();
 
             if(drawings[i].time <= 3.9){
@@ -38,6 +42,23 @@ function draw() {
             }
         }
 
+  }
+
+  function introDraw(){
+        let linelength = random(10);
+        let margin = 50;
+        let px;
+        let py;
+        let x = random(margin, width-margin);
+        let y = random(margin, height-margin);
+        drawings.push(new Line(x, y, x+50, y+50, color));
+
+        for(let i = 0; i<linelength; i++){
+            px = x;
+            py = y;
+            drawings.push(new Line(x, y, x+50, y+50, color));        
+        }
+      introdraw = false;
   }
 
   function mouseDragged(){
