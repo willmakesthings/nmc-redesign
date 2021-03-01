@@ -66,6 +66,51 @@ $('#toggle').click(function() {
     $('body').toggleClass('noscroll')
 });
 
+// SETUP GRID SIZE
+
+if($(window).width() < 576)
+{
+   for(let i=4; i<13; i++){
+       $('#segment' + i).hide();
+   }
+   for(let i=8; i<11; i++){
+        $('#row' + i).hide();
+    }
+} else if($(window).width() > 768 && $(window).width() < 992){
+    for(let i=8; i<13; i++){
+        $('#segment' + i).hide();
+    }
+}
+
+// GRID RESPONSIVE SIZING
+
+$( window ).resize(function() {
+    if($(window).width() < 576){
+        // HIDE COLS 4-12 AND ROWS 8-10
+        for(let i=5; i<13; i++){
+            $('#segment' + i).hide();
+        }
+        for(let i=8; i<11; i++){
+             $('#row' + i).hide();
+         }
+    } else if ($(window).width() > 768 && $(window).width() < 992){
+        // SHOW ALL AND HIDE 8-12
+        for(let i=1; i<13; i++){
+            $('#segment' + i).show();
+        }
+        for(let i=8; i<13; i++){
+            $('#segment' + i).hide();
+        }
+        for(let i=8; i<11; i++){
+            $('#row' + i).show();
+        }
+    } else if ($(window).width() > 992){
+        // SHOW ALL COLS
+        for(let i=1; i<13; i++){
+            $('#segment' + i).show();
+        }
+    }
+  });
 
 // BANNER SLIDER
 
