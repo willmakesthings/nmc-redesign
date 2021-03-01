@@ -61,6 +61,14 @@ window.addEventListener("mouseup", () => {
 // });
 
 
+var relY;
+$(document).ready(function() {
+	$("#sticker-hero").mousemove(function(event){            
+		var relX = event.pageX - $(this).offset().left;
+		relY = event.pageY - $(this).offset().top;
+	}
+)});
+
 // Sticker stuff
 const stickable = document.querySelector('#sticker-hero');
 let stickableRect = stickable.getBoundingClientRect();
@@ -76,18 +84,19 @@ const sticker = {
 		return (x / stickable.clientWidth) * 100;
 	},
 	calculateVhPos: function(y) {
-    // const elementOffset = window.innerHeight - stickable.clientHeight;
+    const elementOffset = window.innerHeight - stickable.clientHeight;
         
     // console.log(stickable);
-    // let returnvar = ((y / (stickable.clientHeight - elementOffset) * 100));
+    let returnvar = ((y / (stickable.clientHeight - elementOffset) * 100));
     // let returnvar = mouse.y;
+
+	return relY/15;
 
 
     // console.log("windowheight:", window.innerHeight, "stickerheight:", stickable.clientHeight, "y:", returnvar);
     // console.log("stickery:",returnvar,"height:",stickable.clientHeight);
-    // return (y / (stickable.clientHeight - stickableRect.top));
-
     // return y / (stickable.clientHeight) * 100;
+
 	},
 	updateSticker: function() {
     this.x = this.calculateVwPos(mouse.x - sticker.offsetX);

@@ -50,8 +50,8 @@ body {
 
 /* TYPE STYLING */
 h1 {
-    font-size: 2rem;
-    font-family: 'IBM Plex Mono', sans-serif;
+    font-size: 6rem;
+    font-family: 'Terminal Grotesque', sans-serif;
     font-weight: 400;
     color: var(--white);
 }
@@ -122,67 +122,6 @@ button:hover {
     transition: all 0.2s ease-in-out;
 }
 
-/*  NAV STYLING */
-.nav {
-    position: fixed;
-    width: 100vw;
-    max-width: 1400px;
-    z-index: 999999;
-    background-color: var(--black);
-    margin: auto;
-    display: inline-grid;
-    grid-template-columns: repeat(12, 1fr [col-start]);
-    grid-template-rows: 50px auto;
-    column-gap: 1vw;
-    align-items: center;
-    grid-template-areas:
-        ". logo . . . . links links links links links ."
-}
-
-.nav__logo {
-    grid-area: logo;
-    font-family: 'terminal-grotesque-open', sans-serif;
-    font-size: 1.5rem;
-    justify-self: start;
-    color: var(--white);
-    text-decoration:none;
-}
-
-.nav__linkholder {
-    grid-area: links;
-    display: flex;
-    justify-content: space-between;
-    font-family: 'IBM Plex Mono', sans-serif;
-    font-size: .7rem;
-}
-
-.nav__linkholder__link a {
-    color: var(--white);
-    text-decoration: none;
-}
-
-.nav__link{
-    position:relative;
-}
-
-.nav__link:before{
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: white;
-    visibility: hidden;
-    transition: all 0.15s cubic-bezier(0,.86,.57,1.31);
-}
-
-
-.nav__link:hover:before{
-    visibility: visible;
-     width: 100%;
-}
-
 /* TURN OFF SELECTION */
 
 ::selection {
@@ -233,6 +172,76 @@ button:hover {
     margin: 0 5rem;
 }
 
+/* LOCOMOTIVE SCROLL SETUP */
+
+/*! locomotive-scroll v4.1.0 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+html.has-scroll-smooth {
+    overflow: hidden; }
+  
+  html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  
+  .has-scroll-smooth body {
+    overflow: hidden; }
+  
+  .has-scroll-smooth [data-scroll-container] {
+    min-height: 100vh; }
+  
+  [data-scroll-direction="horizontal"] [data-scroll-container] {
+    white-space: nowrap;
+    height: 100vh;
+    display: inline-block;
+    white-space: nowrap; }
+  
+  [data-scroll-direction="horizontal"] [data-scroll-section] {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    height: 100%; }
+  
+  .c-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    transform-origin: center right;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0; }
+    .c-scrollbar:hover {
+      transform: scaleX(1.45); }
+    .c-scrollbar:hover, .has-scroll-scrolling .c-scrollbar, .has-scroll-dragging .c-scrollbar {
+      opacity: 1; }
+    [data-scroll-direction="horizontal"] .c-scrollbar {
+      width: 100%;
+      height: 10px;
+      top: auto;
+      bottom: 0;
+      transform: scaleY(1); }
+      [data-scroll-direction="horizontal"] .c-scrollbar:hover {
+        transform: scaleY(1.3); }
+  
+  .c-scrollbar_thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.5;
+    width: 7px;
+    border-radius: 10px;
+    margin: 2px;
+    cursor: -webkit-grab;
+    cursor: grab; }
+    .has-scroll-dragging .c-scrollbar_thumb {
+      cursor: -webkit-grabbing;
+      cursor: grabbing; }
+    [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+      right: auto;
+      bottom: 0; }
+
 /*  CSS GRID SETUP */
 /* each zone of the site gets its own class, which is assigned a grid area that is detailed below */
 
@@ -243,12 +252,20 @@ button:hover {
     margin-top: 100px;
     display: inline-grid;
     grid-template-columns: repeat(12, 1fr [col-start]);
+    /* grid-template-columns:[full-start]
+      minmax(calc(calc(100% - 1008px) / 2), 1fr)
+        [main-start]
+          repeat(14, [col-start] 1fr)
+        [main-end]
+      minmax(calc(calc(100% - 1008px) / 2), 1fr)
+    [full-end]; */
     grid-template-rows: auto;
     column-gap: 1vw;
 }
 
 #landing-page {
     margin-top: 10vw;
+    cursor: url('/img/brush-cursor.svg'), auto;
 }
 
 #drawing-canvas {
@@ -259,6 +276,7 @@ button:hover {
     left: 0;
     width: 100%;
     z-index: -50;
+    
 }
 
 #title {
@@ -268,6 +286,8 @@ button:hover {
 }
 
 #welcome {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-size: 2rem;
     grid-column: 2 / 12;
     grid-row: 2;
     height: 100%;
@@ -408,7 +428,8 @@ button:hover {
 }
 
 #who {
-    grid-column: 2 / 12;
+    grid-row: 1;
+    grid-column: 2 / 8;
 }
 
 #who-bio {
@@ -417,28 +438,34 @@ button:hover {
     grid-column: 2 / 6;
 }
 
+#who-scroll-container{
+    /* min-height: 180vh; */
+    grid-column: 1 / 13;
+}
+
 #image-carousel {
     /* grid-area: img; */
-    /* grid-column: 1 / 12; */
     grid-row: 3;
+    grid-column: 1 / 13;
+    padding-top: 10%;
     /* margin: 0 auto; */
-    /* overflow: hidden;
-    white-space: nowrap; */
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
     /* animation: bannermove 20s linear infinite; */
 }
 
 #slider-container {
-    height: 40vh;
-    width: 100vw;
-    margin: 0 auto;
-    position: relative;
+    /* height: 60vh;
+    width: 100vw; */
+    /* margin: 0 auto; */
+    /* height: 100vh; */
     
 }
 .slider {
-    position: absolute;
     display: flex;
     flex-flow: row nowrap;
-    margin-top: 4vh;
+    /* margin-top: 4vh; */
+    /* height: 100vh; */
 }
 .slider-instant {
     transition: none;
@@ -451,8 +478,8 @@ button:hover {
     flex-flow: row nowrap;
 }
 .slider-last {
-    min-width: 100vw;
-    max-width: 100vw;
+    /* min-width: 100vw;
+    max-width: 100vw; */
     /* overflow: hidden; */
 }
 .slider span {
@@ -461,14 +488,17 @@ button:hover {
 .slider .slider-extra {
     margin-right: 0;
 }
+
+.img-container{
+}
 .slider img {
     height: inherit;
     vertical-align: inherit;
     border: inherit;
     width: auto;
     height: auto;
-    max-width: 400px; 
-    max-height: 40vh;
+    max-width: 50vw; 
+    max-height: 80vh;
     transition: all 0.45s ease;
 }
 
@@ -508,6 +538,7 @@ button:hover {
     grid-template-columns: repeat(12, 1fr [col-start]);
     grid-template-rows: none;
     column-gap: 1vw;
+    transition: transform .6s cubic-bezier(.215,.61,.355,1);
 }
 
 #grid-rows {
@@ -520,6 +551,15 @@ button:hover {
     display: inline-grid;
     pointer-events: none;
     grid-template-columns: none;
+    transition: transform .6s cubic-bezier(.215,.61,.355,1);
+}
+
+#grid-col.is-inview{
+    transform: scaleX(1);
+}
+
+#grid-rows.is-inview {
+    transform: scaleY(1);
 }
 
 .col-segment,
@@ -529,6 +569,7 @@ button:hover {
     height: 100%;
     z-index: 0;
 }
+
 
 /* text styling */
 #bigtext,
@@ -1164,7 +1205,7 @@ button:hover {
 
 #mentor-img {
     /* pointer-events: none; */
-    grid-column: 1/13;
+    grid-column: 2/12;
     max-width: 100%;
     max-height: 100%;
     width: 100%;
@@ -1172,13 +1213,13 @@ button:hover {
 }
 
 #mentor-shape{
-    grid-column: 1 / 7;
+    grid-column: 2 / 7;
     grid-row: 1;
     width: 100%;
 }
 
 #mentor-arrow{
-    grid-column: 1 / 3;
+    grid-column: 2 / 4;
     grid-row: 1;
     width: 100%;
     transition: all 300ms ease;
@@ -1187,14 +1228,14 @@ button:hover {
 }
 
 #mentee-shape{
-    grid-column:7 / 13;
+    grid-column:7 / 12;
     grid-row: 1;
     width: 100%;
     margin-top: 5vw;
 }
 
 #mentee-arrow{
-    grid-column: 11 / 13;
+    grid-column: 10 / 12;
     grid-row: 1;
     width: 100%;
     margin-top: 5vw;
@@ -1295,13 +1336,19 @@ grid-row: 1 / 3;
 }
 
 #community-image {
-    grid-column: 2/8;
-    max-width: 100%;
-    max-height: 100%;
+    grid-column: 2/4;
+    width: 12vw;
+    height: 12vw;
+    background-color: blue;
+}
+
+
+#community-title {
+    font-size: 4rem;
 }
 
 #community-desc {
-    grid-column: 8/12;
+    grid-column: 5/12;
     display: table;
     vertical-align: middle;
     width: 100%;
@@ -1320,7 +1367,7 @@ grid-row: 1 / 3;
 /* Merch Styling */
 
 #merch-wrapper {
-    grid-column: 8/12;
+    grid-column: 3/12;
 }
 
 #merch-button {
@@ -1328,8 +1375,18 @@ grid-row: 1 / 3;
     margin-top: 16px;
 }
 
+#merch-image {
+    grid-column: 2/3;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 
 /* Footer Styling */
+
+#footer{
+    margin-bottom:100px;
+}
 
 .footer-logo {
     font-family: 'terminal-grotesque-open', sans-serif;
@@ -1364,44 +1421,70 @@ grid-row: 1 / 3;
     text-decoration: none;
 }
 
+.signup-container{
+    grid-column: 2/6;
+    margin-top:48px;
+}
+
+.getinvolved-container{
+    grid-column: 8/10;
+    margin-top:48px;
+}
+
+.aboutus-container{
+    grid-column: 10/12;
+    margin-top:48px;
+}
+
 .sign-up,
 .deets {
     color: var(--white);
     font-family: 'IBM Plex Sans', sans-serif;
     grid-column: 2/6;
 
+    margin-bottom:12px;
 }
 
-.sign-up {
-    font-size: 1rem;
-    grid-row: 3;
-    padding-bottom: .5rem;
 
-}
 
 .deets {
     font-size: .8rem;
     grid-row: 4;
 }
 
-.list-title {
-    grid-row: 3;
+#mc_embed_signup_scroll{
+    display:flex;
+    flex-direction: row;
 }
 
-#involved-title {
-    grid-column: 8/10;
+#mce-EMAIL{
+    background-color:rgba(0,0,0,0);
+    border-color: white;
+    border-style: solid;
+    /* display:none; */
+    max-width:300px;
+    height:40px;
+    width:100%;
+    /* padding:8px; */
+    font-family: 'IBM Plex Sans', sans-serif;
+    color:var(--white);
+    margin:0px;
+    padding:0px;
+    border-width:3px;
 }
 
-.involved-links {
-    grid-column: 8/10;
-    grid-row: 4;
+#mc-embedded-subscribe{
+    background-color:rgba(0,0,0,0);
+    border-color: white;
+    border-style: solid;
+    /* display:none; */
+    /* max-width:300px; */
+    /* width:100%; */
+    color:white;
+    height:48px;
+    width:48px;
+    margin:0px;
+    padding:0px;
+    border-width:3px;
 }
 
-#about-title {
-    grid-column: 10/12;
-}
-
-.about-links {
-    grid-column: 10/12;
-    grid-row: 4;
-}
