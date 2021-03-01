@@ -312,7 +312,7 @@ html.has-scroll-dragging {
     grid-column: 1 / 5;
     grid-row: 2;
     font-size: 4rem;
-    margin-top: 10vw;
+    
 }
 
 #welcome {
@@ -321,6 +321,7 @@ html.has-scroll-dragging {
     grid-column: 1 / 5;
     grid-row: 1;
     height: 100%;
+    margin-top: 10vw;
 }
 
 #intro {

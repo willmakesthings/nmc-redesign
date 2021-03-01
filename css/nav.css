@@ -180,6 +180,8 @@
     transform: translateY(-5px) translateX(-5px) rotate(-45deg);
 }
 
+/* TOP OVERLAY */
+
 .overlay {
     position: fixed;
     background: var(--blue);
@@ -230,6 +232,8 @@
     top: 40%; */
 }
 
+/* OVERLAY ITEMS */
+
 .overlay ul {
     list-style: none;
     padding-top: 5vw;
@@ -251,7 +255,7 @@
     color: var(--white);
     text-decoration: none;
     font-family: "Terminal Grotesque", sans-serif;
-    font-size: 12rem;
+    font-size: 5rem;
     height: 100%;
 }
 
@@ -296,3 +300,27 @@
     visibility: visible;
      width: 100%;
 } */
+
+@media (min-width: 576px) {
+    .overlay ul li a {
+        font-size: 6rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .overlay ul li a {
+        font-size: 8rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .overlay ul li a {
+        font-size: 10rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .overlay ul li a {
+        font-size: 12rem;
+    }
+}
