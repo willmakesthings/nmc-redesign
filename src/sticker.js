@@ -69,6 +69,7 @@ $(document).ready(function() {
 	}
 )});
 
+
 // Sticker stuff
 const stickable = document.querySelector('#sticker-hero');
 let stickableRect = stickable.getBoundingClientRect();

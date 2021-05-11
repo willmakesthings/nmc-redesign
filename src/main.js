@@ -112,6 +112,19 @@ $( window ).resize(function() {
     }
   });
 
+// BANNER SLIDER V2.0
+
+import ScrollBooster from '../src/scrollbooster.js';
+
+new ScrollBooster({
+    viewport: document.querySelector('#image-carousel'),
+    content: document.querySelector('#slider-container'),
+    scrollMode: 'transform', // use CSS 'transform' property
+    direction: 'horizontal', // allow only horizontal scrolling
+    emulateScroll: true, // scroll on wheel events
+  });
+
+
 // BANNER SLIDER
 
 // class InfiniteSlider {

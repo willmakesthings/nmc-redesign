@@ -325,7 +325,7 @@ html.has-scroll-dragging {
 }
 
 #intro {
-    grid-column: 1 / 4;
+    grid-column: 1 / 8;
     grid-row: 4;
 }
 
@@ -666,7 +666,7 @@ html.has-scroll-dragging {
     #title {
         grid-column: 2 / 12;
         grid-row: 3;
-        font-size: 6vw;
+        font-size: 11vw;
     }
 
     #welcome {
@@ -853,12 +853,12 @@ html.has-scroll-dragging {
     transition: all .45s ease;
 }
 
-.slider img:hover {
+/* .slider img:hover {
     transform: rotate(10deg) scale(1.1);
     -moz-transform: rotate(10deg) scale(1.1);
     -webkit-transform: rotate(10deg) scale(1.1);
     transform-origin: center;
-}
+} */
 
 
 @media (min-width: 576px) {
@@ -884,6 +884,8 @@ html.has-scroll-dragging {
         grid-row: 3;
         grid-column: 2 / 8;
         padding-top: 10%;
+        overflow-x: hidden;
+        cursor: pointer;
     }
 }
 
@@ -1401,6 +1403,10 @@ html.has-scroll-dragging {
 
 #mentorship {
     position: relative;
+}
+
+.mentor-container{
+    grid-column: 3/11;
 }
 
 #mentor-img {
