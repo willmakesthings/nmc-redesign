@@ -78,6 +78,7 @@
     position: fixed;
     z-index: 999999;
     /* background-color: var(--black); */
+    top: 0;
     left: 0;
     display: inline-grid;
     width: 100vw;
@@ -85,7 +86,7 @@
     display: grid;
     column-gap: 5vw;
     column-gap: 1vw;
-    margin: 2vw 2vw;
+    padding: 2vw 2vw;
 
     grid-template-columns: 
     [start col1] 1fr 1fr 1fr 
@@ -94,7 +95,8 @@
     [threeQ] 1fr 1fr 1fr[end];
 
     grid-template-rows: auto;
-
+    background-color: var(--black);
+    transition: all cubic-bezier(1, 0, 0, 1) 250ms;
 }
 
 .nav__logo {
@@ -108,7 +110,7 @@
 }
 
 .nav__logo img{
-    height: 1vw;
+    height: 2vw;
     align-self: bottom;
 }
 
@@ -144,20 +146,25 @@
 
 /* BURGER MENU */
 .burger_menu {
-    top: 5%;
-    right: 2%;
-    height: 27px;
-    width: 35px;
+    height: 2vw;
     z-index: 100;
     transition: opacity .25s ease;
     background: none;
-    justify-self: end;
-    grid-area: burger;
+    grid-column: end;
     z-index: 1001;
+    grid-row: 1;
+}
+
+.burger_menu:not(.active) .burger_menu-icon {
+    content: url(/media/open-menu.svg);
 }
 
 .burger_menu:hover {
     opacity: 80%;
+}
+
+.burger_menu img{
+    height: 2vw;
 }
 
 .burger_menu-top {

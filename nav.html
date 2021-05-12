@@ -1,8 +1,10 @@
 <div class="nav">
     <a class="nav__logo" href="./index.html"><img src="/img/NMClogo.svg"></a>
     <a class="burger_menu" id="toggle">
-      <div class="burger_menu-top"></div>
-      <div class="burger_menu-bottom"></div>
+      <!-- <div class="burger_menu-top"></div>
+      <div class="burger_menu-bottom"></div> -->
+      <img src="media/close-menu.svg" class="burger_menu-icon">
+      <!-- <img src="media/close-menu.svg" class="close_menu-icon"> -->
   </a>
   <script>
         $('#toggle').click(function() {
@@ -58,6 +60,19 @@
       }, function(){
         $('#contact-img').removeClass('visible');
       });
+
+      //shy nav bar
+      /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.querySelector(".nav").style.top = "0";
+        } else {
+          document.querySelector(".nav").style.top = "-100px";
+        }
+        prevScrollpos = currentScrollPos;
+      }
     </script>
     </div>
   </div>
