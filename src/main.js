@@ -54,9 +54,8 @@ $(document).ready(function(){
 //   }
 
 $(document).ready(function() {
-    if (window.location.pathname == '/index.html') {
-        var scene = document.getElementById('mentor-bg-scene');
-var parallaxInstance = new Parallax(scene);
+    if (window.location.pathname == 'index.html') {
+        console.log('yes this is working')
     }
 });
 
