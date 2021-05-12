@@ -203,6 +203,17 @@ button:hover {
     grid-column: start / half;
 }
 
+#draw-hint{
+    grid-column: threeQ / end;
+    position: absolute;
+    right: 5vw;
+    bottom: 5vw;
+    grid-row: 3;
+    transform: rotate(347deg);
+    opacity: 10%;
+    text-align: center;
+}
+
 /*! ------------ EVENT SECTION ------------ !*/
 
 .wilson {
@@ -213,6 +224,8 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10vw;
+    margin-left: -2vw;
 }
 
 #mascot-face {
@@ -245,7 +258,7 @@ button:hover {
 }
 
 #event-wrapper {
-    grid-column: threeQ / end;
+    grid-column: 8 / end;
     grid-row: 4;
     margin-top: 15vw;
 }
@@ -337,7 +350,7 @@ button:hover {
     grid-row: 3;
     grid-column: start/end;
     padding-top: 10%;
-    cursor: grab;
+    /* cursor: grab; */
 }
 
 .slider {
@@ -817,7 +830,6 @@ button:hover {
 }
 
 .mentor-rotate {
-    cursor: pointer;
     transition: all .45s ease;
 }
 
@@ -829,7 +841,6 @@ button:hover {
 }
 
 .mentee-rotate {
-    cursor: pointer;
     transition: all .45s ease;
 }
 
@@ -992,9 +1003,10 @@ button:hover {
 
 /* ------- MERCH STYLING ------- */
 #merch-wrapper {
-    grid-column: start / end;
+    grid-column: start / half;
     grid-row: 1;
 }
+
 
 #merch-image {
     grid-column: 2/3;
@@ -1016,7 +1028,6 @@ button:hover {
     width: 100%;
     grid-row: 2;
     margin: auto 1vw;
-    cursor: pointer;
 }
 
 #merch-button {

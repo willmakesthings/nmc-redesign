@@ -40,12 +40,12 @@ function drawPath(svg, path, startX, startY, endX, endY) {
     //                 " A" + delta + " " +  delta + " 0 0 " + arc2 + " " + endX + " " + (startY + 3*delta) +
     //                 " V" + endY );
 
-    path.attr("d",  "M"  + startX + " " + startY +
-                    " H" + ((endX/2) - delta) +
-                    " A" + delta + " " +  delta + " 0 0 " + "1" + " " + (endX/2) + " " + (startY+deltaY) +
-                    " V" + (endY) + 
-                    " A" + delta + " " +  delta + " 0 0 " + "0" + " " + (endX/2+deltaY) + " " + (endY+deltaY) +
-                    " H" + (endX - 25)
+    path.attr("d",  "M"  + (startX-60) + " " + (startY) +
+                    " H" + ((endX/2) - delta + 25) +
+                    " A" + delta + " " +  delta + " 0 0 " + "1" + " " + ((endX/2)+25) + " " + (startY+deltaY) +
+                    " V" + (endY-130) + 
+                    " A" + delta + " " +  delta + " 0 0 " + "0" + " " + (endX/2+deltaY+25) + " " + (endY+deltaY-130) +
+                    " H" + (endX - 35)
                     );
     
     
@@ -74,14 +74,13 @@ function connectElements(svg, path, startElem, endElem) {
     var startX = startCoord.left + 0.5*startElem.outerWidth() - svgLeft;    // x = left offset + 0.5*width - svg's left offset
     var startY = startCoord.top  + startElem.outerHeight() - svgTop;        // y = top offset + height - svg's top offset
 
-        // calculate path's end (x,y) coords
+    // calculate path's end (x,y) coords
     var endX = endCoord.left - svgLeft;
     // var endY = endCoord.top - svgTop;
     var endY = endCoord.top - svgTop ;
 
     // call function for drawing the path
     drawPath(svg, path, startX, startY, endX, endY);
-
 }
 
 
