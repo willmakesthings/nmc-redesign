@@ -978,7 +978,7 @@ button:hover {
     background-position: center;
     -webkit-transition: background-size 150ms ease;
 	-moz-transition: background-size 150 ease;
-	-o-transition: background-size 150 ease
+	-o-transition: background-size 150 ease;
 	transition: background-size 150ms ease;
     display: inline-grid;
     justify-self: center;
@@ -1080,26 +1080,40 @@ button:hover {
 
 #merch-card-1 .card-bg {
     border-color: var(--pink);
+    background-image: url(/media/stickers.png);
+    background-position: center;
+    background-size: 100%;
+    
 }
 
 #merch-card-2 .card-bg {
     border-color: var(--orange);
+    background-image: url(/media/merch.png);
+    background-position: center;
+    background-size: 100%;
 }
 
 #merch-card-3 .card-bg {
     border-color: var(--deepyellow);
+    background-image: url(/media/accessories.png);
+    background-position: center;
+    background-size: 100%;
 }
 
 #merch-card-1:hover .card-bg {
-    background-color: var(--pink);
+    background-color: rgba(255, 194, 194, 1);
+    background-size: 110%;
 }
 
 #merch-card-2:hover .card-bg {
     background-color: var(--orange);
+    background-size: 110%;
 }
 
 #merch-card-3:hover .card-bg {
     background-color: var(--deepyellow);
+    background-size: 110%;
+
 }
 
 .merch-card:hover h2 {
