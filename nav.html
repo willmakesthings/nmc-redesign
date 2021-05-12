@@ -1,0 +1,25 @@
+<div class="nav">
+    <a class="nav__logo" href="./index.html"><img src="/img/NMClogo.svg"></a>
+    <a class="burger_menu" id="toggle">
+      <div class="burger_menu-top"></div>
+      <div class="burger_menu-bottom"></div>
+  </a>
+  <script>
+        $('#toggle').click(function() {
+        $(this).toggleClass('active');
+        $(".hero-text span").toggle();
+        $('#overlay').toggleClass('open');
+        $('body').toggleClass('noscroll')
+    });
+  </script>
+    <div class="overlay" id="overlay">
+    <ul class="nav__linkholder">
+      <li class="nav__linkholder__link"><a class="nav__link" href="">Join Us</a></li>
+      <li class="nav__linkholder__link"><a class="nav__link" href="./events.html">Events</a></li>
+      <li class="nav__linkholder__link"><a class="nav__link" href="">Community</a></li>
+      <li class="nav__linkholder__link"><a class="nav__link" href="">Shop</a></li>
+      <li class="nav__linkholder__link"><a class="nav__link" href="">Mentors</a></li>
+      <li class="nav__linkholder__link"><a class="nav__link" href="./contact.html">Contact</a></li>
+    </ul>
+  </div>
+  </div>

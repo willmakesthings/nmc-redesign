@@ -77,7 +77,7 @@ function connectElements(svg, path, startElem, endElem) {
         // calculate path's end (x,y) coords
     var endX = endCoord.left - svgLeft;
     // var endY = endCoord.top - svgTop;
-    var endY = endCoord.top - svgTop - 10;
+    var endY = endCoord.top - svgTop ;
 
     // call function for drawing the path
     drawPath(svg, path, startX, startY, endX, endY);
@@ -87,7 +87,7 @@ function connectElements(svg, path, startElem, endElem) {
 
 function connectAll() {
     // connect all the paths you want!
-    connectElements($("#svg1"), $("#path1"), $("#join"), $("#event-time"));
+    connectElements($("#svg1"), $("#path1"), $("#join"), $("#event-date"));
 }
 
 $(document).ready(function() {

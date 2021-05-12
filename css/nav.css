@@ -76,27 +76,35 @@
 /*  NAV STYLING */
 .nav {
     position: fixed;
-    width: 100vw;
-    max-width: 1400px;
     z-index: 999999;
     /* background-color: var(--black); */
+    left: 0;
     margin: auto;
     display: inline-grid;
-    grid-template-columns: repeat(12, 1fr [col-start]);
-    grid-template-rows: 50px auto;
+    width: 100vw;
+    max-width: 1400px;
+    display: grid;
+    column-gap: 5vw;
     column-gap: 1vw;
-    align-items: center;
-    grid-template-areas:
-        ". logo . . . . . . . . burger ."
+
+    grid-template-columns: 
+    [start col1] 1fr 1fr 1fr 
+    [quarter] 1fr 1fr 1fr 
+    [half] 1fr 1fr 1fr 
+    [threeQ] 1fr 1fr 1fr[end];
+
+    grid-template-rows: auto;
+
 }
 
 .nav__logo {
-    grid-area: logo;
+    grid-column: start;
     font-family: 'terminal-grotesque-open', sans-serif;
     font-size: 1.5rem;
     justify-self: start;
     color: var(--white);
     text-decoration:none;
+    z-index: 1001;
 }
 
 .nav__logo img{
@@ -145,6 +153,7 @@
     background: none;
     justify-self: end;
     grid-area: burger;
+    z-index: 1001;
 }
 
 .burger_menu:hover {
@@ -184,6 +193,7 @@
 
 .overlay {
     position: fixed;
+    z-index: 1000;
     background: var(--blue);
     top: 0;
     left: 0;
@@ -237,7 +247,7 @@
 .overlay ul {
     list-style: none;
     padding-top: 5vw;
-    margin-left: 10vw;
+    margin-left: 1vw;
     display: inline-block;
     position: relative;
 }
@@ -255,7 +265,7 @@
     color: var(--white);
     text-decoration: none;
     font-family: "Terminal Grotesque", sans-serif;
-    font-size: 5rem;
+    font-size: 8rem;
     height: 100%;
 }
 
@@ -300,27 +310,3 @@
     visibility: visible;
      width: 100%;
 } */
-
-@media (min-width: 576px) {
-    .overlay ul li a {
-        font-size: 6rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .overlay ul li a {
-        font-size: 8rem;
-    }
-}
-
-@media (min-width: 992px) {
-    .overlay ul li a {
-        font-size: 10rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    .overlay ul li a {
-        font-size: 12rem;
-    }
-}

@@ -10,6 +10,8 @@ $(document).ready(function(){
 
  });
 
+ 
+
 // WILSON FACE
 
  $('#mascot').hover(
@@ -58,13 +60,6 @@ var parallaxInstance = new Parallax(scene);
     }
 });
 
-// BURGER TOGGLE
-$('#toggle').click(function() {
-    $(this).toggleClass('active');
-    $(".hero-text span").toggle();
-    $('#overlay').toggleClass('open');
-    $('body').toggleClass('noscroll')
-});
 
 // SETUP GRID SIZE
 
@@ -117,8 +112,8 @@ $( window ).resize(function() {
 import ScrollBooster from '../src/scrollbooster.js';
 
 new ScrollBooster({
-    viewport: document.querySelector('#image-carousel'),
-    content: document.querySelector('#slider-container'),
+    viewport: document.querySelector('#slider-container'),
+    content: document.querySelector('.slider'),
     scrollMode: 'transform', // use CSS 'transform' property
     direction: 'horizontal', // allow only horizontal scrolling
     emulateScroll: true, // scroll on wheel events

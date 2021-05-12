@@ -43,8 +43,8 @@ const mouse = {
 	}
 };
 window.addEventListener("mousemove", e => {
-	mouse.x = e.clientX;
-  mouse.y = e.clientY;
+  mouse.x = e.clientX;
+  mouse.y = e.pageY;
   mouse.executeCallback(e);
 });
 window.addEventListener("touchstart", e => {
@@ -61,14 +61,13 @@ window.addEventListener("mouseup", () => {
 // });
 
 
-var relY;
+var relY, relX;
 $(document).ready(function() {
 	$("#sticker-hero").mousemove(function(event){            
-		var relX = event.pageX - $(this).offset().left;
+		relX = event.pageX - $(this).offset().left;
 		relY = event.pageY - $(this).offset().top;
 	}
 )});
-
 
 // Sticker stuff
 const stickable = document.querySelector('#sticker-hero');
@@ -85,31 +84,19 @@ const sticker = {
 		return (x / stickable.clientWidth) * 100;
 	},
 	calculateVhPos: function(y) {
-    const elementOffset = window.innerHeight - stickable.clientHeight;
-        
-    // console.log(stickable);
-    let returnvar = ((y / (stickable.clientHeight - elementOffset) * 100));
-    // let returnvar = mouse.y;
-
-	return relY/15;
-
-
-    // console.log("windowheight:", window.innerHeight, "stickerheight:", stickable.clientHeight, "y:", returnvar);
-    // console.log("stickery:",returnvar,"height:",stickable.clientHeight);
-    // return y / (stickable.clientHeight) * 100;
+		const elementOffset = window.innerHeight - stickable.clientHeight ;
+		return (y / (stickable.clientHeight + elementOffset)) * 100;
 
 	},
 	updateSticker: function() {
     this.x = this.calculateVwPos(mouse.x - sticker.offsetX);
-		this.y = this.calculateVhPos(
-			mouse.y + document.documentElement.scrollTop - sticker.offsetY
-    );
-    // this.y = mouse.y + document.documentElement.scrollTop;
-		this.current && this.moveSticker();
+		
+	this.y = mouse.y;
+	this.current && this.moveSticker();
 	},
 	moveSticker: function() {
 		this.current.style.setProperty("--x", `${this.x}vw`);
-		this.current.style.setProperty("--y", `${this.y}vh`);
+		this.current.style.setProperty("top", `${this.y}px`);
 	},
 	generateSticker: function(x, y) {
     if (this.current) {
@@ -132,7 +119,7 @@ const sticker = {
 		if (x && y) {
 			// New sticker isn't draggable, but placed directly
 			newSticker.style.setProperty("--x", `${x}vw`);
-			newSticker.style.setProperty("--y", `${y}vh`);
+			newSticker.style.setProperty("top", `${y}px`);
 			newSticker.classList.add("static");
 		} else {
 			// New sticker will be dragged
@@ -141,13 +128,16 @@ const sticker = {
 
 		this.current = newSticker;
 		window.requestAnimationFrame(() => {
-			stickable.appendChild(newSticker);
+			if(document.body != null){
+				document.body.appendChild(newSticker);
+			}
+			
 		});
 	},
 	destroySticker: function() {
 		if (sticker.current) {
 			window.requestAnimationFrame(() => {
-				stickable.removeChild(sticker.current);
+				document.body.removeChild(sticker.current);
 				sticker.current = false;
 			});
 		}
