@@ -79,13 +79,13 @@
     z-index: 999999;
     /* background-color: var(--black); */
     left: 0;
-    margin: auto;
     display: inline-grid;
     width: 100vw;
     max-width: 1400px;
     display: grid;
     column-gap: 5vw;
     column-gap: 1vw;
+    margin: 2vw 2vw;
 
     grid-template-columns: 
     [start col1] 1fr 1fr 1fr 
@@ -202,6 +202,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity .35s, visibility .35s, height .35s;
+
     overflow: hidden;
 }
 
@@ -244,18 +245,37 @@
 
 /* OVERLAY ITEMS */
 
+.overlay-grid{
+    width: 100vw;
+    max-width: 1400px;
+
+    display: grid;
+    column-gap: 5vw;
+    column-gap: 1vw;
+
+    grid-template-columns: 
+    [start col1] 1fr 1fr 1fr 
+    [quarter] 1fr 1fr 1fr 
+    [half] 1fr 1fr 1fr 
+    [threeQ] 1fr 1fr 1fr[end];
+
+    grid-template-rows: auto;
+}
+
 .overlay ul {
     list-style: none;
-    padding-top: 5vw;
+    padding-top: 10vw;
     margin-left: 1vw;
     display: inline-block;
     position: relative;
+    grid-column: start / half;
+    grid-row: 1;
 }
 
 .overlay ul li {
     display: block;
     opacity: 0;
-    height: 100%;
+    /* height: 100%; */
     margin-bottom: 12vh;
 }
 
@@ -267,6 +287,19 @@
     font-family: "Terminal Grotesque", sans-serif;
     font-size: 8rem;
     height: 100%;
+}
+
+
+.overlay img{
+    padding-top: 10vw;
+    display: none;
+    grid-column: half / end;
+    grid-row: 1; 
+    width: 100%;
+}
+
+.visible{
+    display: block !important;
 }
 
 
