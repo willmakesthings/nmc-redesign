@@ -1,79 +1,4 @@
 /*  NAV STYLING */
-/* .nav {
-    position: fixed;
-    width: 100vw;
-    max-width: 1400px;
-    z-index: 999999;
-    background-color: var(--black);
-    margin: auto;
-    display: inline-grid;
-    grid-template-columns: repeat(12, 1fr [col-start]);
-    grid-template-rows: 50px auto;
-    column-gap: 1vw;
-    align-items: center;
-    grid-template-areas:
-        ". logo . . . . links links links links links ."
-}
-
-.nav__logo {
-    grid-area: logo;
-    font-family: 'terminal-grotesque-open', sans-serif;
-    font-size: 1.5rem;
-    justify-self: start;
-    color: var(--white);
-    text-decoration:none;
-}
-
-.nav__logo:hover{
-    transition: all 0.15s cubic-bezier(0,.86,.57,1.31);
-    color: var(--gray02);
-}
-
-.nav__linkholder {
-    grid-area: links;
-    display: flex;
-    justify-content: space-between;
-    font-family: 'IBM Plex Mono', sans-serif;
-    font-size: .7rem;
-}
-
-.nav__linkholder__link a {
-    color: var(--white);
-    text-decoration: none;
-}
-
-.nav__link{
-    position:relative;
-}
-
-.nav__link:before{
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--gray02);
-    visibility: hidden;
-    transition: all 0.15s cubic-bezier(0,.86,.57,1.31);
-}
-
-
-.nav__link:hover:before{
-    visibility: visible;
-     width: 100%;
-}
-
-.nav__link:hover{
-    color: var(--gray02);
-}
-
-.activeNav{
-    color:var(--gray03);
-} */
-
-
-/*  NAV STYLING */
 .nav {
     position: fixed;
     z-index: 999999;
@@ -99,7 +24,7 @@
     padding-top: 1vw;
     padding-bottom:1vw;
 
-    background-color: var(--black);
+    background-color: var(--white);
     transition: all cubic-bezier(1, 0, 0, 1) 250ms;
 }
 
@@ -109,14 +34,16 @@
     font-family: 'terminal-grotesque-open', sans-serif;
     font-size: 1.5rem;
     justify-self: start;
-    color: var(--white);
+    color: var(--black);
     text-decoration:none;
     z-index: 1001;
+    fill: var(--black);
 }
 
 .nav__logo img{
-    height: 1em;
+    height: 2vw;
     align-self: bottom;
+    fill: var(--black);
 }
 
 /* .nav__linkholder {
@@ -171,7 +98,7 @@
 }
 
 .burger_menu img{
-    height: 1em;
+    height: 2vw;
 }
 
 .burger_menu-top {
@@ -357,26 +284,3 @@
     visibility: visible;
      width: 100%;
 } */
-
-@media (max-width:480px)  {
-    .nav__logo img{
-        margin-top: 1em;
-        height: 1em;
-    }
-    .burger_menu img{
-        height: 2em;
-        margin-top: 1em;
-        margin-right: 1em;
-    }
-    .nav__link{
-        font-size: 6rem !important;
-
-    }
-    .overlay ul{
-        margin-top: 4em;
-        grid-column: start / end;
-    }
-    .overlay img{
-        display: none !important;
-    }
-}

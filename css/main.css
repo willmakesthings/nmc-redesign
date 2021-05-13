@@ -16,7 +16,7 @@
 }
 
 :root {
-    --white: #fff;
+    --white: #fafafa;
     --black: #0a0a0a;
     --blue: #2727E7;
     --lightblue: #B2CCFF;
@@ -180,7 +180,6 @@ button:hover {
     width: 100%;
     max-width: 1400px;
     display: grid;
-    column-gap: 5vw;
     margin: 5vw 2vw;
     column-gap: 1vw;
 
@@ -191,6 +190,10 @@ button:hover {
     [threeQ] 1fr 1fr 1fr[end];
 
     grid-template-rows: auto;
+
+    position: relative;
+    overflow-x: hidden;
+    
 }
 /*! ------------ INTRO SECTION ------------ !*/
 
@@ -224,6 +227,26 @@ button:hover {
     opacity: 10%;
     text-align: center;
 }
+
+@media (max-width:480px)  { 
+    #welcome{
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+    }
+    #title{
+        font-size: 3rem;
+        grid-column: start / end;
+        margin-bottom: 1rem;
+    }
+    #intro{
+        grid-column: start / end;
+    }
+    #draw-hint{
+        display: none;
+    }
+}
+
+
 
 /*! ------------ EVENT SECTION ------------ !*/
 
@@ -340,6 +363,37 @@ button:hover {
     }
 }
 
+@media (max-width:480px)  { 
+    #join{
+        display: none;
+    }
+    #svgContainer{
+        display: none;
+    }
+    .wilson{
+        grid-row: 1;
+        grid-column: start / end;
+        width: 80%;
+        justify-self: center;
+        height: 10rem;
+    }
+    #mascot{
+        left: 3rem;
+        width: 80%;
+    }
+    #mascot-bg{
+        left: -1em;
+        top: -2em;
+    }
+    #event-wrapper{
+        grid-column: start / end;
+        grid-row: 2;
+    }
+    #event-section{
+        margin-bottom: 8rem;
+    }
+}
+
 /*! ------------ WHO WE ARE SECTION ------------ !*/
 
 #who {
@@ -361,6 +415,7 @@ button:hover {
     grid-row: 3;
     grid-column: start/end;
     padding-top: 10%;
+    overflow-x: hidden;
     /* cursor: grab; */
 }
 
@@ -408,6 +463,19 @@ button:hover {
     transform-origin: center;
 } */
 
+@media (max-width:480px)  { 
+    #who{
+        font-size: 4rem;
+        grid-column: start / end;
+        content: "Who we are";
+    }
+    #who-bio{
+        grid-column: start /end;
+    }
+    .slider img{
+        max-width: 80vw;
+    }
+}    
 
 /* ------------ CALLOUT GRID SECTION ------------ */
 
@@ -550,11 +618,33 @@ button:hover {
     grid-row: 7/8;
 }
 
+@media (max-width:480px)  { 
+    #bigtext, #bigtext2{
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+    #callout1, #callout2{
+        font-size: 1rem;
+    }
+    #grid-col{
+        grid-template-columns: auto auto auto auto;
+    }
+    #sticker-section{
+        margin-bottom: 5em !important;
+        min-height: 60vh !important;
+    }
+    #sticker-hero{
+        height: 60vh;
+
+    }
+}
+
 /* ------------ STICKER SECTION ------------ */
 
 #sticker-section{
     position: relative;
     min-height: 100vh;
+    margin: 0;
 }
 
 #sticker-hero {
@@ -965,6 +1055,48 @@ button:hover {
     grid-column: half / end;
 }
 
+@media (max-width:480px)  { 
+    #mentor-shape{
+        position: absolute;
+        width: 250%;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        left: -12em;
+    }
+    #mentee-shape{
+        width: 250%;
+        position: absolute;
+        left: -7em;
+        top: 18em;
+    }
+    #mentor-bg-scene{
+        display: none;
+    }
+    #mentor-arrow{
+        display: none;
+    }
+    #mentee-arrow{
+        display: none;
+    }
+    #mentor{
+        margin-top: 10em;
+        font-size: 5rem;
+        margin-bottom: 0.25rem !important;
+    }
+    #mentor-desc{
+        grid-row: 3;
+        grid-column: start / end;
+    }
+    #mentor-desc2{
+        grid-row: 4;
+        grid-column: start / end;
+    }
+    #mentor-link{
+        grid-row: 5;
+        grid-column: start / end;
+    }
+}
+
 /* ------- COMMUNITY STYLING ------- */
 
 #community-image {
@@ -1016,6 +1148,20 @@ button:hover {
     white-space: nowrap;
 }
 
+@media (max-width:480px)  {
+    #community-image{
+        grid-row: 1;
+        grid-column: start / end;
+        width: 100%;
+        height: 10em;
+        margin-bottom: 4em;
+    }
+    #community-desc{
+        grid-row: 2;
+        grid-column: start / end;
+    }
+}
+
 /* ------- MERCH STYLING ------- */
 #merch-wrapper {
     grid-column: start / half;
@@ -1042,6 +1188,7 @@ button:hover {
     width: 100%;
     grid-row: 2;
     margin: auto 1vw;
+    
 }
 
 #merch-button {
@@ -1056,17 +1203,20 @@ button:hover {
 
 .merch-card h1 {
     vertical-align: top;
-    /* position: absolute; */
+    position: relative;
     top: -50px;
     left: 10px;
+    text-decoration: none;
 }
 
-.merch-card h2 {
+
+.merch-wrapper h2 {
     vertical-align: bottom;
-    margin-top: 1vw;
+    margin-top: 2vw;
     text-decoration: none;
     transition: all .25s ease;
 }
+
 
 .merch-card .card-bg {
     min-height: 15vw;
@@ -1117,9 +1267,35 @@ button:hover {
 }
 
 .merch-card:hover h2 {
-    text-decoration: #fff underline;
+    text-decoration: var(--white) underline;
 }
 
+.merch-card h2{
+    margin-top: 1vw;
+}
+
+@media (max-width:480px)  {
+    #merch-wrapper{
+        grid-column: start / end;
+        margin-bottom: 3em !important;
+    }
+    .merch-card h1{
+        display: none;
+    }
+    #card-container{
+        flex-direction: column;
+        margin-bottom: 1em !important;
+    }
+    .card-bg{
+        height: 15em !important;
+    }
+    .merch-card{
+        margin-bottom: 3em;
+    }
+    #merch-button{
+        grid-column: start / end;
+    }
+}
 
 /* ------- FOOTER STYLING ------- */
 #footer {
@@ -1127,10 +1303,11 @@ button:hover {
 }
 
 .footer-logo {
+    grid-row: 1;
     font-family: 'terminal-grotesque-open', sans-serif;
     font-size: 5rem;
     color: var(--white);
-    grid-column: 2/5;
+    grid-column: 2 / half;
 }
 
 .logo-label {
@@ -1138,8 +1315,9 @@ button:hover {
     font-family: 'IBM Plex Mono', sans-serif;
     font-weight: 400;
     color: var(--white);
-    grid-column: 2/5;
+    grid-column: 2 / half;
     padding-bottom: 2rem;
+    grid-row: 2;
 }
 
 .list-title {
@@ -1147,6 +1325,7 @@ button:hover {
     font-family: 'IBM Plex Mono', sans-serif;
     font-weight: 400;
     color: var(--gray03);
+    margin-bottom: 1vw;
 }
 
 .footer-linkholder a {
@@ -1158,25 +1337,29 @@ button:hover {
 }
 
 .signup-container {
-    grid-column: 2/6;
-    margin-top: 48px;
+    margin-top: 5vh;
+    grid-column: 2 / half;
+    grid-row: 2;
 }
 
 .getinvolved-container {
-    grid-column: 8/10;
-    margin-top: 48px;
+    margin-top: 5vh;
+    grid-row: 1 / 2;
+    grid-column: 8 / 9;
+    justify-content: center;
 }
 
 .aboutus-container {
-    grid-column: 10/12;
-    margin-top: 48px;
+    margin-top: 5vh;
+    grid-row: 1 / 2;
+    grid-column: 10 / end;
 }
 
 .sign-up,
 .deets {
     color: var(--white);
     font-family: 'IBM Plex Sans', sans-serif;
-    grid-column: 2/6;
+    grid-column: 2/8;
     margin-bottom: 12px;
 }
 
@@ -1192,26 +1375,47 @@ button:hover {
 
 #mce-EMAIL {
     background-color: rgba(0, 0, 0, 0);
-    border-color: #fff;
+    border-color: var(--white);
     border-style: solid;
     max-width: 300px;
-    height: 40px;
-    width: 100%;
+    height: 5vh;
+    width: 20vw;
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--white);
-    margin: 0;
-    padding: 0;
-    border-width: 3px;
 }
 
 #mc-embedded-subscribe {
     background-color: rgba(0, 0, 0, 0);
-    border-color: #fff;
+    border-color: var(--white);
     border-style: solid;
-    color: #fff;
-    height: 48px;
-    width: 48px;
+    color: var(--white);
+    height: 5vh;
+    width: 3vw;
     margin: 0;
     padding: 0;
-    border-width: 3px;
+}
+
+/* Mobile Optimization */
+@media (max-width:480px)  {
+ .footer-logo{
+     grid-column: start / end;
+     grid-row: 1;
+ }
+ .logo-label{
+     grid-row: 2;
+     grid-column: start / end;
+ }
+ .signup-container{
+     grid-column: start / end;
+ }
+
+ .getinvolved-container{
+    grid-column: start / half;
+    grid-row: 4;
+ }
+
+ .aboutus-container{
+    grid-column: half / end;
+    grid-row: 4;
+ }
 }

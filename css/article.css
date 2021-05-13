@@ -78,3 +78,24 @@ img{
     background-image: url(/img/rebrand-header.png);
     background-position: 50% 50%;
 }
+
+.img-container img{
+    border-radius: 15px;
+}
+
+article{
+    width: 100%;
+    overflow-x: hidden;
+}
+@media (max-width:480px)  {
+    p{
+        font-size: 1.7rem;
+        line-height: 2.9rem;
+    }
+    h4{
+        font-size: 2rem;
+    }
+    .banner-wrapper{
+        height: 40vh;
+    }
+}

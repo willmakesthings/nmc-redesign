@@ -7,6 +7,7 @@
     <link rel = "stylesheet" type = "text/css" href = "../css/reset.css" />
     <link rel = "stylesheet" type = "text/css" href = "../css/main.css" />
     <link rel = "stylesheet" type = "text/css" href = "../css/nav.css" />
+    <link rel = "stylesheet" type = "text/css" href = "../css/light-footer.css" />
     <link rel = "stylesheet" type = "text/css" href = "../css/article.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital@0;1&display=swap" rel="stylesheet">
@@ -65,8 +66,8 @@
     <figure class="visual-block mbm">
         <div id="slider-container">
             <div class="slider">
-                <span><div class="img-container"><img src="../media/wilson.gif"></img></div></span>
                 <span><div class="img-container"><img src="../media/drawing.gif"></img></div></span>
+                <span><div class="img-container"><img src="../media/wilson.gif"></img></div></span>
                 <span><div class="img-container"><img src="../media/stickers.gif"></img></div></span>
         </div>
         <script type="module">
@@ -81,4 +82,21 @@
             });
         </script>
     </figure>
+
+    <h4 class="fit mbs">A New Face</h4>
+    <p class="fit mbm">We worked tirelessly to explore every possible direction for the new New Media Club logo, and ended right where we started.
+     The new symbol for the club embodies everything the club stands for, and represents changing screens, the motion of interaction, and movement towards the future.
+    </p>
+
+    <figure class="fit mbm">
+        <img class="fit" src="../img/logo-showcase.png">
+    </figure>
 </article>
+<!-- Inject footer code -->
+<div id="footer-placeholder"></div>
+
+<script>
+$(function(){
+  $("#footer-placeholder").load("../footer.html");
+});
+</script>
