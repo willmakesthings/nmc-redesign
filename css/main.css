@@ -635,6 +635,7 @@ button:hover {
     }
     #sticker-hero{
         height: 60vh;
+        display: none;
 
     }
 }
